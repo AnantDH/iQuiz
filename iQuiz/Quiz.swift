@@ -11,5 +11,5 @@ struct Quiz {
     let topic: String
     let description: String
     let image: String
-    // add questions and answers later when we get there
+    let questions: [QuizQuestion]
 }

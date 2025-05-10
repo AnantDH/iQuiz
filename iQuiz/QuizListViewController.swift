@@ -28,6 +28,16 @@ class QuizListViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedQuiz = quizzes[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let quizQuestionVC = storyboard.instantiateViewController(withIdentifier: "QuizQuestionViewController") as? QuizQuestionViewController {
+            quizQuestionVC.quiz = selectedQuiz
+            navigationController?.pushViewController(quizQuestionVC, animated: true)
+        }
+    }
+    
     @IBAction func settingsPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
