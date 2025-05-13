@@ -35,6 +35,6 @@ class QuizFinishedViewController: UIViewController {
     }
     
     @IBAction func nextPressed(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: false)
     }
 }

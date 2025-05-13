@@ -78,7 +78,7 @@ class QuizQuestionViewController: UIViewController, UITableViewDelegate, UITable
                 if let resultsVC = storyboard.instantiateViewController(withIdentifier: "QuizFinishedViewController") as? QuizFinishedViewController {
                     resultsVC.numCorrect = numCorrect
                     resultsVC.numQuestions = numQuestions
-                    navigationController?.pushViewController(resultsVC, animated: true)
+                    navigationController?.pushViewController(resultsVC, animated: false)
                 }
             }
         } else {

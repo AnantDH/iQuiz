@@ -27,7 +27,8 @@ class QuizRepository {
             description: "How well do you know the Marvel Super Heroes?",
             image: "bolt.fill",
             questions: [
-                QuizQuestion(questionPrompt: "What is Thor's hammer called?", answerChoices: ["Mjolnir", "Scepter", "Sword", "Jarvis"], correctAnswerIndex: 0)
+                QuizQuestion(questionPrompt: "What is Thor's hammer called?", answerChoices: ["Mjolnir", "Scepter", "Sword", "Jarvis"], correctAnswerIndex: 0),
+                QuizQuestion(questionPrompt: "Which infinity stone does Doctor Strange keep on his necklace?", answerChoices: ["Soul Stone", "Mind Stone", "Power Stone", "Time Stone"], correctAnswerIndex: 3)
             ]
         ),
         Quiz(
@@ -35,7 +36,8 @@ class QuizRepository {
             description: "Physics, Astronomy, and Biology",
             image: "atom",
             questions: [
-                QuizQuestion(questionPrompt: "Which one of these is NOT a star?", answerChoices: ["The Sun", "Sirius", "Jupiter", "Betelgeuse"], correctAnswerIndex: 2)
+                QuizQuestion(questionPrompt: "Which one of these is NOT a star?", answerChoices: ["The Sun", "Sirius", "Jupiter", "Betelgeuse"], correctAnswerIndex: 2),
+                QuizQuestion(questionPrompt: "Which of the following is used by plants to convert sunlight into energy?", answerChoices: ["Metabolization", "Photosynthesis", "Solar Cells", "Digestion"], correctAnswerIndex: 1)
             ]
         )
     ]

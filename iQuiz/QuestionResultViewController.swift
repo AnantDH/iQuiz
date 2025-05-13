@@ -31,6 +31,6 @@ class QuestionResultViewController: UIViewController {
     }
     
     @IBAction func nextPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: false)
     }
 }
