@@ -9,8 +9,51 @@ import Foundation
 
 class QuizRepository {
     static let shared = QuizRepository()
-    private init() {}
     
+    private(set) var quizzes: [Quiz] = []
+    private var sourceUrl: String = "https://tednewardsandbox.site44.com/questions.json"
+    
+    
+    func getSourceURL() -> String {
+        return self.sourceUrl
+    }
+    
+    
+    func updateSourceUrl(_ newUrl: String, completion: @escaping (String) -> Void) {
+        guard let url = URL(string: newUrl) else {
+            completion("Invalid URL!")
+            return
+        }
+
+        self.sourceUrl = newUrl
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion("Error: \(error.localizedDescription)")
+                return
+            }
+
+            guard let data = data else {
+                completion("No data received")
+                return
+            }
+
+            do {
+                let decoded = try JSONDecoder().decode([Quiz].self, from: data)
+                DispatchQueue.main.async {
+                    self.quizzes = decoded
+                    completion("Successfully updated quizzes!")
+                }
+            } catch {
+                completion("Failed to decode JSON: \(error.localizedDescription)")
+            }
+        }.resume()
+    }
+}
+
+    /*
     let quizzes: [Quiz] = [
         Quiz(
             topic: "Mathematics",
@@ -41,4 +84,4 @@ class QuizRepository {
             ]
         )
     ]
-}
+     */

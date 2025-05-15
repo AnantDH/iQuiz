@@ -49,7 +49,7 @@ class QuizQuestionViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func submitPressed(_ sender: Any) {
         if let selectedOption = selectedRow {
             var isCorrect = false
-            if selectedOption == quiz!.questions[currQuestion-1].correctAnswerIndex {
+            if selectedOption == Int(quiz!.questions[currQuestion-1].correctAnswerIndex) {
                 numCorrect += 1
                 isCorrect = true
             }
@@ -58,7 +58,7 @@ class QuizQuestionViewController: UIViewController, UITableViewDelegate, UITable
             if let questionResultVC = storyboard.instantiateViewController(withIdentifier: "QuestionResultViewController") as? QuestionResultViewController {
                 questionResultVC.isCorrect = isCorrect
                 questionResultVC.questionPrompt = quiz!.questions[currQuestion-1].questionPrompt
-                questionResultVC.correctAnswer = quiz!.questions[currQuestion-1].answerChoices[quiz!.questions[currQuestion-1].correctAnswerIndex]
+                questionResultVC.correctAnswer = quiz!.questions[currQuestion-1].answerChoices[Int(quiz!.questions[currQuestion-1].correctAnswerIndex)!]
                 navigationController?.pushViewController(questionResultVC, animated: true)
             }
         }

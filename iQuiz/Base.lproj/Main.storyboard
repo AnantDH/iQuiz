@@ -26,6 +26,77 @@
             </objects>
             <point key="canvasLocation" x="174.80916030534351" y="120.42253521126761"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="48T-Zq-5cR">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="rVh-b8-6Sg" customClass="SettingsViewController" customModule="iQuiz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rcL-cR-XRn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replace the current URL with another for a new Quiz Data Source!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBS-GV-dDT">
+                                <rect key="frame" x="16" y="101" width="361" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="O4h-H3-pO4"/>
+                                    <constraint firstAttribute="width" constant="361" id="uki-Xv-bkC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://tednewardsandbox.site44.com/questions.json" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2d-vM-YLm">
+                                <rect key="frame" x="11" y="193" width="371" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyL-rR-FSS">
+                                <rect key="frame" x="140.66666666666666" y="246" width="112" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Check Now"/>
+                                <connections>
+                                    <action selector="newUrlSubmitted:" destination="rVh-b8-6Sg" eventType="touchUpInside" id="INx-O4-ENd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success / Fail Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5j-Fe-bBz">
+                                <rect key="frame" x="16" y="344" width="361" height="20.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="ew9-8L-bsw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Ygr-7b-OGR">
+                                <rect key="frame" x="186.66666666666666" y="162" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fUN-IB-vva"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h2d-vM-YLm" firstAttribute="top" secondItem="Ygr-7b-OGR" secondAttribute="bottom" constant="11" id="3Iz-sp-C1F"/>
+                            <constraint firstItem="vyL-rR-FSS" firstAttribute="top" secondItem="h2d-vM-YLm" secondAttribute="bottom" constant="19" id="9CX-l5-hNT"/>
+                            <constraint firstItem="sBS-GV-dDT" firstAttribute="centerX" secondItem="rcL-cR-XRn" secondAttribute="centerX" id="9LJ-mO-gwg"/>
+                            <constraint firstItem="L5j-Fe-bBz" firstAttribute="top" secondItem="vyL-rR-FSS" secondAttribute="bottom" constant="63" id="B3g-NT-jfS"/>
+                            <constraint firstItem="vyL-rR-FSS" firstAttribute="centerX" secondItem="rcL-cR-XRn" secondAttribute="centerX" id="Hgy-nJ-e0k"/>
+                            <constraint firstItem="h2d-vM-YLm" firstAttribute="centerX" secondItem="rcL-cR-XRn" secondAttribute="centerX" id="IIS-Ur-q5r"/>
+                            <constraint firstItem="h2d-vM-YLm" firstAttribute="top" secondItem="sBS-GV-dDT" secondAttribute="bottom" constant="39" id="OTP-Dy-5YQ"/>
+                            <constraint firstItem="sBS-GV-dDT" firstAttribute="top" secondItem="fUN-IB-vva" secondAttribute="top" constant="42" id="YEb-X1-Jsw"/>
+                            <constraint firstItem="Ygr-7b-OGR" firstAttribute="centerX" secondItem="rcL-cR-XRn" secondAttribute="centerX" id="jyz-Nf-LcZ"/>
+                            <constraint firstItem="L5j-Fe-bBz" firstAttribute="centerX" secondItem="rcL-cR-XRn" secondAttribute="centerX" id="zX1-5r-8DX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RE5-MC-BW6"/>
+                    <connections>
+                        <outlet property="customStatusLabel" destination="L5j-Fe-bBz" id="ygy-37-DPs"/>
+                        <outlet property="spinner" destination="Ygr-7b-OGR" id="YNo-H5-nqn"/>
+                        <outlet property="userURLInputField" destination="h2d-vM-YLm" id="9q4-09-1ka"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqU-jt-WPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093.8931297709923" y="-604.22535211267609"/>
+        </scene>
         <!--Quiz List View Controller-->
         <scene sceneID="9xU-lB-GEd">
             <objects>
@@ -96,6 +167,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape.fill" catalog="system" id="Bvc-V0-aNZ">
                             <connections>
                                 <action selector="settingsPressed:" destination="Mys-Jf-1N5" id="l5r-sv-6Ch"/>
+                                <segue destination="rVh-b8-6Sg" kind="popoverPresentation" popoverAnchorBarButtonItem="Bvc-V0-aNZ" id="G5f-B1-fCQ">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -197,8 +271,11 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct Answer: *Insert here*" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-A3-uMi">
-                                <rect key="frame" x="57.666666666666657" y="368" width="278" height="26.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct Answer: *Insert here*" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-A3-uMi">
+                                <rect key="frame" x="16" y="368" width="361" height="26.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="aSF-Mj-yfi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -254,7 +331,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You got X/Y questions correct!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF4-ND-kKK">
-                                <rect key="frame" x="52.666666666666515" y="278" width="288" height="26.333333333333314"/>
+                                <rect key="frame" x="52.666666666666657" y="278" width="288" height="26.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

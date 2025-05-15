@@ -7,8 +7,15 @@
 
 import Foundation
 
-struct QuizQuestion {
+struct QuizQuestion: Codable {
     let questionPrompt: String
+    let correctAnswerIndex: String
     let answerChoices: [String]
-    let correctAnswerIndex: Int
+
+    enum CodingKeys: String, CodingKey {
+        case questionPrompt = "text"
+        case correctAnswerIndex = "answer"
+        case answerChoices = "answers"
+    }
 }
+

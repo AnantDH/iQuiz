@@ -8,11 +8,16 @@
 import UIKit
 
 class QuizListViewController: UITableViewController {
-    
-    let quizzes = QuizRepository.shared.quizzes
-    
+    var quizzes: [Quiz] {
+        return QuizRepository.shared.quizzes
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        QuizRepository.shared.updateSourceUrl("https://tednewardsandbox.site44.com/questions.json") { result in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,7 +28,8 @@ class QuizListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuizTableViewCell", for: indexPath) as! QuizTableViewCell
         let quiz = quizzes[indexPath.row]
         cell.topicLabel.text = quiz.topic
-        cell.imageViewElement.image = UIImage(systemName: quiz.image)
+        let iconName = quiz.image ?? "questionmark.circle"
+        cell.imageViewElement.image = UIImage(systemName: iconName)
         cell.descriptionLabel.text = quiz.description
         return cell
     }
@@ -37,12 +43,4 @@ class QuizListViewController: UITableViewController {
             navigationController?.pushViewController(quizQuestionVC, animated: true)
         }
     }
-    
-    @IBAction func settingsPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
-    
-    
 }
